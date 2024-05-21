@@ -1,5 +1,15 @@
 import app from "./app.js";
 import cloudinary from "cloudinary";
+// Import the cors package
+const cors = require("cors");
+
+// Apply cors middleware to your express app
+app.use(
+  cors({
+    origin: "https://jobclinch.netlify.app", // Replace with your frontend application's origin
+    optionsSuccessStatus: 200,
+  })
+);
 
 cloudinary.v2.config({
   cloud_name: process.env.CLOUDINARY_CLIENT_NAME,
