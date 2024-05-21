@@ -1,9 +1,14 @@
+import { config } from "dotenv";
+import express from "express";
 import { catchAsyncErrors } from "../middlewares/catchAsyncError.js";
 import { User } from "../models/userSchema.js";
 import ErrorHandler from "../middlewares/error.js";
 import { sendToken } from "../utils/jwtToken.js";
 // Import the cors package
 import cors from "cors";
+
+const app = express();
+config({ path: "./config/config.env" });
 
 // Apply cors middleware to your express app
 app.use(

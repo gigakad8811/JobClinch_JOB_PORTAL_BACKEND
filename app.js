@@ -9,7 +9,9 @@ import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import { errorMiddleware } from "./middlewares/error.js";
 // Import the cors package
-import cors from "cors";
+
+const app = express();
+config({ path: "./config/config.env" });
 
 // Apply cors middleware to your express app
 app.use(
@@ -19,9 +21,6 @@ app.use(
     credentials: true, // Allow cookies to be sent in the request
   })
 );
-
-const app = express();
-config({ path: "./config/config.env" });
 
 app.use(
   cors({

@@ -1,4 +1,5 @@
 import express from "express";
+import { config } from "dotenv";
 import {
   register,
   login,
@@ -8,6 +9,9 @@ import {
 import { isAuthorized } from "../middlewares/auth.js";
 // Import the cors package
 import cors from "cors";
+
+const app = express();
+config({ path: "./config/config.env" });
 
 // Apply cors middleware to your express app
 app.use(
