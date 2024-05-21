@@ -6,6 +6,17 @@ import {
   getUser,
 } from "../controllers/userController.js";
 import { isAuthorized } from "../middlewares/auth.js";
+// Import the cors package
+import cors from "cors";
+
+// Apply cors middleware to your express app
+app.use(
+  cors({
+    origin: "https://jobclinch.netlify.app", // Replace with your frontend application's origin
+    optionsSuccessStatus: 200,
+    credentials: true, // Allow cookies to be sent in the request
+  })
+);
 
 const router = express.Router();
 

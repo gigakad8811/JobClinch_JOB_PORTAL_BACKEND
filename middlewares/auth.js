@@ -2,6 +2,17 @@ import { User } from "../models/userSchema.js";
 import { catchAsyncErrors } from "./catchAsyncError.js";
 import ErrorHandler from "./error.js";
 import jwt from "jsonwebtoken";
+// Import the cors package
+import cors from "cors";
+
+// Apply cors middleware to your express app
+app.use(
+  cors({
+    origin: "https://jobclinch.netlify.app", // Replace with your frontend application's origin
+    optionsSuccessStatus: 200,
+    credentials: true, // Allow cookies to be sent in the request
+  })
+);
 
 export const isAuthorized = catchAsyncErrors(async (req, res, next) => {
   const { token } = req.cookies;

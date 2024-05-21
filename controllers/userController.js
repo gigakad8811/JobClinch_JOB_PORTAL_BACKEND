@@ -2,6 +2,17 @@ import { catchAsyncErrors } from "../middlewares/catchAsyncError.js";
 import { User } from "../models/userSchema.js";
 import ErrorHandler from "../middlewares/error.js";
 import { sendToken } from "../utils/jwtToken.js";
+// Import the cors package
+import cors from "cors";
+
+// Apply cors middleware to your express app
+app.use(
+  cors({
+    origin: "https://jobclinch.netlify.app", // Replace with your frontend application's origin
+    optionsSuccessStatus: 200,
+    credentials: true, // Allow cookies to be sent in the request
+  })
+);
 
 export const register = catchAsyncErrors(async (req, res, next) => {
   const { name, email, phone, password, role } = req.body;

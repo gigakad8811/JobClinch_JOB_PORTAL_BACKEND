@@ -8,6 +8,17 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import { errorMiddleware } from "./middlewares/error.js";
+// Import the cors package
+import cors from "cors";
+
+// Apply cors middleware to your express app
+app.use(
+  cors({
+    origin: "https://jobclinch.netlify.app", // Replace with your frontend application's origin
+    optionsSuccessStatus: 200,
+    credentials: true, // Allow cookies to be sent in the request
+  })
+);
 
 const app = express();
 config({ path: "./config/config.env" });
