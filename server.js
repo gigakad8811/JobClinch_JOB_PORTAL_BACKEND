@@ -1,7 +1,7 @@
 import app from "./app.js";
 import cloudinary from "cloudinary";
 // Import the cors package
-const cors = require("cors");
+import cors from "cors";
 
 // Apply cors middleware to your express app
 app.use(
