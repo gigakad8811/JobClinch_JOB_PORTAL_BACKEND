@@ -13,7 +13,7 @@ config({ path: "./config/config.env" });
 // Apply cors middleware to your express app
 app.use(
   cors({
-    origin: "https://jobclinch.netlify.app", // Replace with your frontend application's origin
+    origin: "https://jobclinch.online/", // Replace with your frontend application's origin
     optionsSuccessStatus: 200,
     credentials: true, // Allow cookies to be sent in the request
   })
